@@ -1,0 +1,184 @@
+\documentclass[10pt]{article}
+\usepackage{../_macrosLatex/macros}
+\usepackage[a4paper,margin=2.5cm]{geometry}
+\usepackage{fancyhdr} % Gestion header/footer
+
+%----------------------------------------------------
+% Paramétrage de la fiche
+%----------------------------------------------------
+\matiere{BTS SNIR TS1}
+\sequence{Programmation en langage C++}
+\seqlogo{\faCode}
+\titrefiche{TP2 - Alternatives}
+\version{v1.0}
+\dateversion{21.09.22}
+\type{TP}
+
+%----------------------------------------------------
+% Définition des pieds et têtes de page
+%----------------------------------------------------
+% Pour toutes les pages
+\pagestyle{fancy}
+\fancyhead[L]{\seqlogo\ \sequenceVal}
+\fancyhead[R]{\titreficheVal}
+\fancyfoot[L]{\matiereVal - Lycée Louis Rascol, Albi}
+\fancyfoot[R]{\ccbyncsaeu}
+\fancyfoot[C]{\thepage\ / \pageref{LastPage}}
+% Pour la première page
+\fancypagestyle{firstpage}{%
+  \lhead{}
+  \rhead{}
+  \renewcommand{\headrulewidth}{0pt}
+}
+
+%----------------------------------------------------
+% Début du document
+%----------------------------------------------------
+\begin{document}
+\cartouche
+\thispagestyle{firstpage}
+
+\section*{Introduction}
+Dans ce nouveau TP nous allons utiliser les structures alternatives vues en cours tel que : \mintinline{cpp}`if()`,
+\mintinline{cpp}`if() ... else` et \mintinline{cpp}`switch() ... case`.
+
+\begin{enumerate}
+    \item Chaque exercice devra être \textbf{codé dans un projet CLion différent}.
+    \item \textbf{Le code résidera dans le fichier main.cpp}
+    \item Pour commencer copiez-coller le squelette de base d'un code C++ \textbf{dans le fichier main.cpp}.
+    \item Remplissez correctement le cartouche pour chaque exercice.
+\end{enumerate}
+
+\begin{cppcode}
+    /************************************************
+    Nom du fichier : 
+    Description : 
+    Auteur :
+    Date :
+    BTS SNIR - TS1
+    ************************************************/
+
+    #include <iostream>
+    using namespace std;
+
+    int main() {
+        // Mettez ici votre code C++
+        return 0;
+    }
+\end{cppcode}
+
+
+%----------------------------------------------------
+% EXERCICES
+%----------------------------------------------------
+\section{Exercices}
+
+\subsection{Pair ou impair}
+Les entiers qui sont divisibles par 2 (division parfaite sans reste) sont appelés nombres pairs, les autres pour lesquels
+la division par 2 donne un reste, sont appelés nombres impairs.
+\smallskip
+Afin de vérifier si un nombre est pair ou impair, il suffit de regarder le \textbf{reste de la division Euclidienne} (division quotient/reste), si le \textbf{reste vaut 0}, c'est que le nombre est \textbf{pair}, \textbf{sinon} c'est qu'il est \textbf{impair}. L'opérateur à utiliser est le modulo : \mintinline{cpp}`%`.
+
+\begin{enumerate}
+    \item En C++ déclarez la variable qui contiendra l'\textbf{entier} saisi par l'utilisateur.
+    \item Demandez à l'utilisateur de saisir l'entier avec \mintinline{cpp}`cout`. 
+    \item Occupez-vous de capturer la saisie clavier avec \mintinline{cpp}`cin` et de la stocker dans la variable créée. 
+    \item Créez une structure \mintinline{cpp}`if() ... else`, dans la condition vous testerez si le nombre est pair ou impair.
+    \item Si le nombre est pair afficher à l'écran \verb|nombre pair|, sinon \verb|nombre impair|.
+\end{enumerate}
+
+
+\subsection{Années bissextiles}
+Une année est bissextile si elle est divisible par 4 mais pas par 100, ou si elle est divisible par 400. Vous créerez un code C++ qui demande à l'utilisateur de saisir une année et renvoi à l'écran si elle est bissextile ou non.
+
+\smallskip
+Par exemple 1200, 1600, 1968, 2000, 2004, 2012 étaient des années bissextiles.
+
+\begin{itemize}
+    \item En C++ déclarez la variable \mintinline{cpp}`annee` qui contiendra \textbf{l'année} saisie par l'utilisateur.
+    \item Demandez à l'utilisateur de saisir l'année avec \mintinline{cpp}`cout`. 
+    \item Occupez-vous de capturer la saisie clavier avec \mintinline{cpp}`cin` et de la stocker dans la variable créée.
+    \item Créez une structure \mintinline{cpp}`if() ... else`, dans la condition vous testerez si l'année' est bissextile.
+    \item Si elle est bissextile vous afficherez :\\
+     \verb|[annee] est bissextile|\\
+    sinon \\
+    \verb|[annee] n'est pas bissextile| 
+\end{itemize}
+
+
+\subsection{Voyelle ou consonne}
+Dans l'alphabet 6 lettres sont des voyelles : a, e, i, o, u, y, toutes les autres sont des consonnes.     
+\smallskip
+Vous devrez créer un programme qui demande à l'utilisateur de saisir une lettre et renvoyer à l'écran si celle-ci est une voyelle ou une consonne. \textbf{Attention, le test devra fonctionner si le caractère est une minuscule ou une majuscule}.
+
+\begin{enumerate}
+    \item En C++ déclarez la variable \mintinline{cpp}`car` qui contiendra \textbf{le caractère} saisi par l'utilisateur.
+    \item Demandez à l'utilisateur de saisir le caractère avec \mintinline{cpp}`cout`. 
+    \item Occupez-vous de capturer la saisie clavier avec \mintinline{cpp}`cin` et de la stocker dans la variable créée.
+    \item Créez une structure \mintinline{cpp}`if() ... else`, dans la condition vous testerez si le caractère est une voyelle : Si il est égal à \mintinline{cpp}`'a'` ou \mintinline{cpp}`'e'`, ou \mintinline{cpp}`'i'`, ou \mintinline{cpp}`'o'`, ou \mintinline{cpp}`'u'`, ou \mintinline{cpp}`'y'`.
+    \item Si le caractère est une voyelle, vous afficherez :\\
+     \verb|[car] est une voyelle|\\
+    sinon \\
+    \verb|[car] est une consonne|
+\end{enumerate}
+
+
+\subsection{Plus grand parmi 3}
+Vous demanderez à l'utilisateur de saisir en une fois 3 nombres qui peuvent être des décimaux. Votre programme
+trouvera le nombre le plus grand parmi les 3 et l'affichera à l'écran.
+
+\begin{enumerate}
+    \item En C++ déclarez les variables qui contiendront \textbf{les nombres décimaux} saisis par l'utilisateur : \mintinline{cpp}`a`, \mintinline{cpp}`b` et \mintinline{cpp}`c`  
+    \item Demandez à l'utilisateur de saisir les 3 nombres décimaux avec \mintinline{cpp}`cout`. 
+    \item Occupez-vous de capturer la saisie clavier avec \mintinline{cpp}`cin` et de la stocker dans les variables créées.
+    \item Créez \textbf{3 structures} \mintinline{cpp}`if()` : la première testera si \mintinline{cpp}`a` est le plus grand, la seconde si \mintinline{cpp}`b` est le plus grand et la dernière si \mintinline{cpp}`c` est le plus grand.
+    \item Pour chaque \mintinline{cpp}`if()` vous afficherez à l'écran le nombre trouvé s'il est reconnu comme étant le plus grand :\\
+    \verb|Le nombre [a, b ou c] est le plus grand|
+\end{enumerate}
+
+\subsection{Résultats d'une équation du premier degré}
+Une équation du premier degré : $ax^2+bx+c$ se résout en calculant le discriminant $\Delta$ : 
+$$\Delta=b^2-4ac$$
+Suivant le signe de $\Delta$, il y a 3 possibilités :
+\begin{itemize}
+    \item $\Delta<0$ : Pas de solution dans les $\mathbb{R}$
+    \item $\Delta=0$ : Une solution double : $$x_1=x_2=\frac{-b}{2a}$$
+    \item $\Delta>0$ : Deux solutions : $$x_1=\frac{-b-\sqrt{\Delta}}{2a} \qquad x_2=\frac{-b+\sqrt{\Delta}}{2a}$$
+\end{itemize}
+
+Vous ferez un code C++ qui demande à l'utilisateur de saisir les coefficients de l'équation : \mintinline{cpp}`a, b, c` et renverra à l'écran les solutions de l'équation.
+
+\begin{itemize}
+    \item En C++ déclarez les variables qui contiendront \textbf{les coefficients entiers} saisis par l'utilisateur : \mintinline{cpp}`a`, \mintinline{cpp}`b` \mintinline{cpp}`c` et \mintinline{cpp}`delta` 
+    \item Demandez à l'utilisateur de saisir les 3 nombres décimaux avec \mintinline{cpp}`cout`. 
+    \item Occupez-vous de capturer la saisie clavier avec \mintinline{cpp}`cin` et de la stocker dans les variables créées.
+    \item Calculez le discriminant, stockez le résultat dans \mintinline{cpp}`delta`
+    \item Créez \textbf{3 structures} \mintinline{cpp}`if()` : La première testera si \mintinline{cpp}`delta` est inférieur à 0, la suivante s'il est supérieur et la dernière s'il est nul.
+    \item Pour chaque \mintinline{cpp}`if()` vous ferez le calcul de la solution et afficherez le résultat.
+\end{itemize}
+
+
+\subsection{Calculatrice}
+Votre programme demandera à l'utilisateur de choisir un opérande parmi les 4 calculs de bases : \mintinline{cpp}`+, -, x, /`, 
+puis de saisir 2 nombres (pouvant être des décimaux). Immédiatement après la saisie il affichera le résultat de l'opération
+choisie.
+
+Exemple d'affichage sur la console :
+\begin{textcode}
+    Choisissez votre opérateur : +, -, *, /: -    
+    Entrez 2 opérandes : 3.4 8.4
+    3.4 - 8.4 = -5
+\end{textcode}
+
+\begin{itemize}
+    \item En C++ déclarez les variables qui contiendront \textbf{les deux nombres décimaux} saisis par l'utilisateur : \mintinline{cpp}`a` et \mintinline{cpp}`b` ainsi que le \textbf{caractère} correspondant à l'opération choisie \mintinline{cpp}`operateur` et le décimal stockant le résultat : \mintinline{cpp}`rslt` 
+    \item Demandez à l'utilisateur de saisir l'opérateur avec \mintinline{cpp}`cout`. 
+    \item Occupez-vous de capturer la saisie clavier avec \mintinline{cpp}`cin` et de la stocker dans la variable \mintinline{cpp}`operateur`.
+    \item Demandez à l'utilisateur de saisir les 2 opérandes avec \mintinline{cpp}`cout`. 
+    \item Occupez-vous de capturer la saisie clavier avec \mintinline{cpp}`cin` et de la stocker dans les variables \mintinline{cpp}`a` et \mintinline{cpp}`b`.
+    \item Vous mettrez en place une structure \mintinline{cpp}`switch()...case` avec un \mintinline{cpp}`case` par opération.
+    \item Programmez les opérations dans chaque case et affectez le résultat à la variable \mintinline{cpp}`rslt`. 
+    \item Affichez le calcul et son résultat correspondant.
+\end{itemize}    
+
+\end{document}
